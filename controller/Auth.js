@@ -13,7 +13,7 @@ exports.signup = async (req, res) => {
 
         //check if user already exist
         const existingUser = await User.findOne({ email });
-
+ 
         if (existingUser) {
             return res.status(400).json({
                 success: false,
@@ -31,7 +31,7 @@ exports.signup = async (req, res) => {
                 success: false,
                 message: 'Error in hashing Password'
             });
-        }
+        } 
 
         //here user can create entry
         const user = await User.create({
@@ -77,9 +77,10 @@ exports.login = async (req, res) => {
                 message: "User is not registered"
             });
         }
+        //compare password
         let payload = {
             email: user.email,
-            id: user_id,
+            id: user._id, 
             role: user.role,
         };
         //verify the password and generate JWT token
@@ -90,6 +91,7 @@ exports.login = async (req, res) => {
                     expiresIn: "2h",
                 });   //sign(payload,token)
 
+            user.toObject();
             user.token = token;
             user.password = undefined; //password removed from user object not from database
 
@@ -97,7 +99,7 @@ exports.login = async (req, res) => {
                 expires:new Date(Date.now()+3*24*60*60*10000),
                 httpOnly:true,
             };
-            res.cookie("token",token,options).status(200).json({
+            res.cookie("sagar",token,options).status(200).json({
                 success:true,
                 token,
                 user,
@@ -115,7 +117,7 @@ exports.login = async (req, res) => {
     }
     catch (error) {
       console.log(error);
-      return res.status(500).json({
+      return res.status(500).json({ 
         success:false,
         message:"Login Failure",
       });
