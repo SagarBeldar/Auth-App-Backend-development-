@@ -11,7 +11,7 @@ router.post("/signup", signup);
 
 // testing routes
 router.get("/test",auth,(req,res)=>{
-    res.json({
+    res.json({ 
         success:true,
         message:'Welcome to the Protected route for Tests'
      });
