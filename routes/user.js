@@ -7,7 +7,8 @@ const { auth, isStudent, isAdmin } = require("../middlewares/auth");
 
 router.post("/login", login);
 router.post("/signup", signup);
-
+  
+  console.log("Function are try to authenticate the user");
 
 // testing routes
 router.get("/test",auth,(req,res)=>{
