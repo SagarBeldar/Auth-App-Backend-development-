@@ -4,7 +4,7 @@
 - 👉🏻 This website or we say app are the backend development project in which we are authenticate or authorized  the login and logout form. In simple langauge more protection to be provided
 - Also How protected routes are build and the act and help in authentication and authorization.
 In which we used 
-## 🔗JWT TOKEN,Bcrypt library,Hashing ALgorithms.
+## 🔗JWT TOKEN,Bcrypt library,Hashing ALgorithms. 
 - 👉🏻Here we leran about the conecept is what is difference between Hashing And Encryption,Decryption 
 
 - They are tottaly different from each  other. 
